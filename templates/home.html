@@ -3,5 +3,8 @@
 {% block title %}Loja Python{% endblock %}
 
 {% block content %}
-    Olá!
+{% if user.is_authenticated %}
+    Olá! Seja-bem vindo. A empresa logada é {{ empresa_logada }}
+{% endif %}
 {% endblock %}
+
