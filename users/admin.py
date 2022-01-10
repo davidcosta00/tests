@@ -58,17 +58,22 @@ class UserAdmin(BaseUserAdmin):
         ),
     )
 
-# Campos dos admin
+    # Campos dos admin
     staff_fieldsets = (
         (None, {'fields': ('email', 'nome', 'sobrenome', 'last_login')}),
         ('Configurações Empresa', {'fields': ('empresa', 'cargo')}),
     )
 
-    list_display = ('email', 'nome', 'is_active', 'is_staff', 'last_login', 'empresa')
-    list_filter = ('is_staff', 'is_superuser', 'is_active', 'groups', 'empresa')
+    list_display = ('email', 'nome', 'is_active', 'is_staff', 'last_login', 'get_grupo_empresarial', 'empresa')
+    list_filter = ('is_staff', 'is_superuser', 'is_active', 'empresa')
     search_fields = ('email',)
     ordering = ('email',)
     filter_horizontal = ('groups', 'user_permissions',)
+
+    @admin.display(description='Grupo')
+    def get_grupo_empresarial(self, obj):
+        if obj.empresa:
+            return obj.empresa.grupo_empresarial
 
 
 @admin.register(Empresas)
