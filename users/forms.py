@@ -22,7 +22,7 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ('empresa',)
 
-    def __init__(self, user=None, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(UserForm, self).__init__(*args, **kwargs)
 
         if self.instance.empresa:
