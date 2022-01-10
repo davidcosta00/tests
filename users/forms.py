@@ -1,13 +1,23 @@
-from django.contrib.auth import forms
+from django import forms
+from django.contrib.auth import forms as auth_form
 
 from .models import User
 
 
-class UserChangeForm(forms.UserChangeForm):
-    class Meta(forms.UserChangeForm.Meta):
+class UserChangeForm(auth_form.UserChangeForm):
+
+    class Meta(auth_form.UserChangeForm.Meta):
         model = User
 
 
-class UserCreationForm(forms.UserCreationForm):
-    class Meta(forms.UserCreationForm.Meta):
+class UserCreationForm(auth_form.UserCreationForm):
+
+    class Meta(auth_form.UserCreationForm.Meta):
         model = User
+
+
+class UserForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ('empresa',)
