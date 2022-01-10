@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
-from model_utils.models import TimeStampedModel
 from django.utils import timezone
+from model_utils.models import TimeStampedModel
 
 
 class GrupoEmpresarial(TimeStampedModel):

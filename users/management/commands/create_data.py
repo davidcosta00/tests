@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 from django.utils.text import slugify
 from faker import Faker
 
-from users.models import GrupoEmpresarial, Empresas, User
+from users.models import Empresas, GrupoEmpresarial, User
 
 fake = Faker()
 
